@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store System</title>
+    <link rel="shortcut icon" href="/images/bookfav.png"/>
+    <style>
+
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px; /* Increased padding for slightly larger navbar */
+            background-color: black; /* Red tone for blood donation theme */
+            color: white;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 300px; /* Adjust the width as needed */
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        li {
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s; /* Smooth color transition on hover */
+        }
+
+        a:hover {
+            color: cornflowerblue; /* Change color on hover */
+        }
+
+        /* Login Page Navigation Styles */
+        .login-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .login-nav a {
+            margin-right: 20px;
+        }
+
+        /* Login Form Styles */
+        /* Login Form Styles */
+        form {
+            max-width: 450px;
+            width: 90%; /* Adjusted width to 100% */
+            margin: auto;
+            padding: 40px; /* Increased padding for the form */
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin: 10px 0; /* Adjusted margin */
+        }
+
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: lightgreen; /* Red color for the button */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: limegreen; /* Darker red on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            background-color: cornflowerblue; /* Red tone for blood donation theme */
+            color: #fff;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            color: white;
+        }
+
+        .message-container {
+            text-align: center;
+            max-width: 400px; /* Adjust the maximum width as needed */
+            margin: 0 auto; /* Center the container horizontally */
+        }
+
+        .success-message {
+            color: red;
+            font-weight: bold;
+            background-color: cornsilk;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <li><a class="navbar-brand text-white" href="#" style="font-family: 'Book Antiqua',sans-serif;">BookWise Emporium</a></li>
+        <li><a href="/" >Home</a></li>
+        <li><a href="/user/new" >If you wish to Register. Click here</a></li>
+    </ul>
+</nav>
+
+<!-- Login Form -->
+<div>
+    <h2>Please Sign In</h2>
+    <div th:if="${message}" class="message-container">
+        <p th:text="${message}" class="success-message"></p>
+    </div>
+    <form th:action="@{/user/login/save}" method="post">
+        <!-- You can add more form fields as needed -->
+        <label for="username">Enter Your Username or Email:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+
+        <label for="password">Enter Your Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2023 BookWise Emporium. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

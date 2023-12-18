@@ -1,0 +1,13 @@
+package com.bookStore.repository;
+
+import com.bookStore.entity.User;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends CrudRepository<User, Integer> {
+
+    Optional<User> findByPassword(String password);
+}

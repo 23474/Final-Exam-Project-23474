@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store System</title>
+    <link rel="shortcut icon" href="/images/bookfav.png"/>
+    <link th:href="@{/css/signUp.css}" rel="stylesheet"/>
+    <script>
+        function validatePassword() {
+            const passwordInput = document.getElementById("password");
+            const password = passwordInput.value;
+
+            // Define a regular expression to match special characters
+            const specialCharacters = /[!@#$%^&*(),.?":{}|<>]/;
+
+            // Check if the password contains at least one special character
+            if (!specialCharacters.test(password)) {
+                alert("Password must include at least one special character.");
+                passwordInput.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px; /* Increased padding for slightly larger navbar */
+            background-color: black; /* Red tone for blood donation theme */
+            color: white;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 300px; /* Adjust the width as needed */
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        li {
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s; /* Smooth color transition on hover */
+        }
+
+        a:hover {
+            color: cornflowerblue; /* Change color on hover */
+        }
+
+        /* SignUp Page Navigation Styles */
+        .signup-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .signup-nav a {
+            margin-right: 20px;
+        }
+
+        /* SignUp Form Styles */
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 30px; /* Increased padding for the form */
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin: 10px 0; /* Adjusted margin */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: lightgreen; /* Red color for the button */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: limegreen; /* Darker red on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            background-color: cornflowerblue; /* Red tone for blood donation theme */
+            color: #fff;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+
+        footer p {
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a class="navbar-brand text-white" href="#" style="font-family: 'Book Antiqua',sans-serif;">BookWise Emporium</a></li>
+        <li><a href="/" >Home</a></li>
+        <li><a href="/user/login" >If you wish to log in. Click here</a></li>
+    </ul>
+</nav>
+
+<!-- Sign Up Form -->
+<div>
+    <h2>Register Here</h2>
+    <form th:action="@{/user/save}" method="post">
+        <!-- You can add more form fields as needed -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required onblur="validatePassword()">
+        <br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2023 BookWise Emporium. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
